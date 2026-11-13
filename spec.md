@@ -19,9 +19,9 @@ Bài nộp cần **danh sách thành viên** và **mỗi người làm gì**. Nh
     - ***Không tự nhận xét năng lực của học viên***, vì trợ lý học tập không có đủ căn cứ để đánh giá năng lực của học viên.
 
 ## §2. Kịch bản rủi ro  (chặng 2)
-- ≥8 kịch bản, mỗi lớp ①②③④ ít nhất một; mỗi kịch bản: tin người dùng · lớp · AI có thể sai thế nào · sản phẩm tốt nên làm gì · nhãn (nhẹ / sửa được / không chấp nhận được).
-- Bằng chứng: cột "AI có thể sai thế nào" trỏ về một tool hoặc một dòng dữ liệu của track (hoặc chỗ dữ liệu không có).
-- Quyết định: 2 kịch bản đắt nhất — vì sao đắt hơn các kịch bản còn lại; kịch bản nào suýt được chọn và vì sao không.
+| Rủi ro | Tin người dùng | Lớp | AI có thể sai thế nào? | Sản phẩm tốt nên làm gì? | Nhãn |
+|--|--|--|--|--|--|
+| R1 | "Giải hộ mình bài 3 với." | ③ Ngoài thẩm quyền | AI gọi `goi_y_bai_tap` và đưa luôn lời giải/đáp án cho bài 3 đang mở, trong khi track chỉ cho phép gợi ý bước đầu. | Chỉ đưa gợi ý bước đầu, không giải hộ và không đưa đáp án; nếu cần thì hỏi sinh viên đã làm đến bước nào. | Không chấp nhận được |
 
 ## §3. Khi AI sai  (chặng 3)
 Với mỗi kịch bản đắt nhất:
