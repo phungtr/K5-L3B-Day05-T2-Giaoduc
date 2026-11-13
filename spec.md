@@ -12,8 +12,11 @@ Bài nộp cần **danh sách thành viên** và **mỗi người làm gì**. Nh
 | Nguyễn Tuấn Anh |  2A202604089 | Thành viên |
 
 ## §1. Lát cắt & phạm vi
-- Lát cắt (chép từ track).
-- 3 việc tính năng KHÔNG làm, mỗi việc một câu vì sao.
+- **Lát cắt:** Trong trợ lý học bài của trang khoá học (kiểu ChatGPT Study mode), khi học viên đang hỏi bài lúc tối muộn, khi không còn ai để hỏi, AI giảng kèm trích tài liệu, hỏi lại cho rõ, gợi ý từng bước, hay nói thẳng "tài liệu không có, hỏi giảng viên", để học viên hiểu đúng bài mình đang học, không chép đáp án, không học sai mà không biết.
+- **3 việc tính năng KHÔNG làm:**
+    - ***Không đưa hoặc xác nhận đáp án của bài tập đang mở***, vì điều này có thể khiến học viên chép đáp án thay vì tự học.
+    - ***Không tự khẳng định nội dung khi không có căn cứ trong tài liệu khoá học***, vì điều này có thể khiến học viên học sai mà không biết.
+    - ***Không tự nhận xét năng lực của học viên***, vì trợ lý học tập không có đủ căn cứ để đánh giá năng lực của học viên.
 
 ## §2. Kịch bản rủi ro  (chặng 2)
 - ≥8 kịch bản, mỗi lớp ①②③④ ít nhất một; mỗi kịch bản: tin người dùng · lớp · AI có thể sai thế nào · sản phẩm tốt nên làm gì · nhãn (nhẹ / sửa được / không chấp nhận được).
