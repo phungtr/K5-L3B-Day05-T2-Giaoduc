@@ -71,6 +71,31 @@ Nhóm so các kịch bản theo ba câu hỏi: lỗi có **âm thầm** không (
 - **Thiết kế cứu / giới hạn hành động của tool:** Khi trạng thái bài tập là **“đang mở”**, `goi_y_bai_tap` chỉ được tạo **gợi ý bước đầu**; không được tạo hoặc xác nhận đáp án, cũng không tạo lời giải hoàn chỉnh. Học viên không có nút hoặc luồng đi tới đáp án/lời giải hoàn chỉnh. Sau khi học viên tự làm và gửi phép tính, AI có thể kiểm tra cách làm và — nếu học viên xin — đưa một gợi ý tiếp theo, nhưng vẫn không được tiết lộ lời giải hoàn chỉnh. Đây là giới hạn ở mức hành động sản phẩm, không phải lời hứa bằng câu chữ.
 
 ### Kịch bản đắt giá nhất 2 - R4: Tài liệu khóa học có câu sai
+- **Tin người dùng:** "Tài liệu bảo độ lệch chuẩn luôn nhỏ hơn phương sai, mà em tính ra lớn hơn, em sai ở đâu ạ?"
+- **AI nói gì (nguyên văn):**
+
+  > "Chưa chắc là bạn tính sai. Câu ở mục 3.3 'độ lệch chuẩn luôn nhỏ hơn phương sai' chỉ đúng khi phương sai lớn hơn 1. Bạn thử với phương sai 0,25: độ lệch chuẩn là √0,25 = 0,5, lớn hơn phương sai. Mình không có quyền xác nhận tài liệu sai, nên mình đã soạn sẵn một báo cáo gửi TA và giảng viên. Bạn xem lại rồi bấm gửi nhé. Nếu bạn gửi phép tính của mình, mình sẽ kiểm tra cách làm, không phải kiểm tra đáp số."
+
+- **Dữ liệu xác nhận:** `tra_cuu_tai_lieu` trả về đúng câu ở §3.3 và câu này sai khi phương sai < 1. Ví dụ 0,25 tự tính lại được, không phụ thuộc vào AI.
+- **Người dùng thấy gì:**
+  - Thẻ trích dẫn **§3.3**, đoạn "luôn nhỏ hơn phương sai" được tô vàng, kèm nhãn **"AI chưa chắc: cần giảng viên xác nhận"**.
+  - Ví dụ 0,25 hiện ngay trong thẻ để học viên tự tính lại.
+  - Hộp **"Báo cáo gửi TA"** đã điền sẵn: câu trích, vì sao nghi sai, ví dụ phản chứng. Học viên đọc được nội dung trước khi gửi.
+  - Hai nút: **[Gửi báo cáo]** và **[Bỏ qua]**. Không có nút nào cho AI tự khẳng định "tài liệu sai".
+  - **G2 — Làm rõ nó làm tốt đến đâu:** nhãn "AI chưa chắc". **G11 — Giải thích vì sao:** thẻ trích tô vàng và ví dụ 0,25. **G9 / G15 — Sửa dễ, mời feedback:** hộp báo cáo, học viên sửa nội dung trước khi gửi.
+- **Người dùng làm gì tiếp:** tự thử với 0,25, rồi gửi báo cáo nếu đồng ý. Học viên cũng có thể gửi phép tính của mình để AI kiểm tra cách làm. Nếu bỏ qua, mọi thứ vẫn như cũ, và câu sai vẫn nằm trong tài liệu cho tới khi ai đó báo.
+- **Ai được báo, sau bao lâu:** TA nhận báo cáo, rồi chuyển giảng viên (người duy nhất sửa được tài liệu). Ngoài giờ TA (08:00–22:00), màn hình ghi rõ *"TA trả lời từ 08:00 ngày 14/11"*. Chỉ hiện "Đã gửi lúc …" khi `chuyen_TA` thực sự chạy xong. Nếu tool lỗi, hiện *"Chưa gửi được, bạn thử lại"*. AI không hứa giảng viên sẽ sửa trước một thời điểm nào.
+- **Quyết định:** **Trả lời kèm giới hạn, rồi chuyển người có thẩm quyền.** AI hiểu rõ câu hỏi, nhưng nguồn của chính nó có thể sai và AI không đủ thẩm quyền kết luận. Một ví dụ tự kiểm chứng cho học viên thứ thật sự giúp được, còn quyết định sửa tài liệu thuộc về giảng viên.
+- **Chọn:** nêu nghi vấn có căn cứ (điều kiện phương sai > 1 và ví dụ 0,25), nói rõ giới hạn "không có quyền xác nhận", và soạn sẵn báo cáo để học viên bấm gửi. Nếu học viên gửi phép tính, AI kiểm tra cách làm theo công thức √ chứ không xác nhận đáp số.
+- **Đã cân nhắc nhưng loại:**
+  - **Bênh tài liệu ("bạn tính sai"):** học viên làm đúng mà bị bảo sai, bỏ hiểu biết đúng, và không ai biết tài liệu có lỗi.
+  - **Khẳng định "tài liệu sai":** AI không có thẩm quyền, chỉ giảng viên xác nhận được. Nếu AI cũng sai thì học viên bị dẫn đi sai theo hướng ngược lại.
+  - **Nói "bạn đúng, bạn tính ra lớn hơn là đúng":** AI không thấy số liệu của học viên nên không biết họ tính đúng hay không. Điều chỉ nói được là kết quả đó có thể xảy ra khi phương sai < 1.
+  - **Nói chung chung "bạn kiểm tra lại nhé":** học viên không biết kiểm tra cái gì.
+  - **AI tự gửi báo cáo cho TA, không cần học viên xem:** nhanh hơn, nhưng học viên không biết nội dung đã gửi, và AI có thể báo nhầm. Một cú bấm xác nhận rẻ hơn nhiều so với báo sai.
+- **Loại lỗi:** **Lỗi hệ thống do dữ liệu nguồn.** AI chạy đúng thiết kế (tra tài liệu rồi trả lời theo tài liệu) nhưng nguồn sai, nên đầu ra sai. Khi xin lỗi, không đổ lỗi cho học viên, nói thẳng "bạn có lý ở chỗ này". Cách sửa là sửa tài liệu và thêm đường báo lỗi.
+- **Lỗi mà sửa câu chữ không cứu được:** AI coi `tra_cuu_tai_lieu` là sự thật tuyệt đối. Dù viết lại câu trả lời khéo đến đâu, nếu tài liệu nói "luôn nhỏ hơn" thì AI vẫn có xu hướng bảo học viên tính sai.
+- **Thiết kế cứu:** (1) Khi kết quả của học viên mâu thuẫn với nguồn, AI không được kết luận "học viên sai" chỉ dựa vào nguồn. Nó phải kiểm tra bằng một ví dụ tự dựng rồi mới trả lời. (2) Luôn có đường báo lỗi tài liệu qua `chuyen_TA` với nội dung soạn sẵn. (3) Trạng thái "Đã gửi" chỉ hiện sau khi `chuyen_TA` chạy xong.
 
 ## §4. Mức tự chủ  (chặng 4)
 Với mỗi tool:
