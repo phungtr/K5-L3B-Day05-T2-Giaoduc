@@ -226,21 +226,101 @@ Có thể mở thẳng từng trạng thái bằng đường dẫn: `?ca=r4&buoc
 Câu tự gõ đi qua các luật theo thứ tự sau:
 1. Nguồn không có ("slide …")
 2. Gia hạn (ngoài thẩm quyền)
-3. Bài 2 (đã hết hạn, giải đầy đủ)
-4. Xin giải hộ (chỉ gợi ý bậc 1)
-5. Xin xác nhận đáp số (không xác nhận)
-6. Hạn nộp (lấy từ trang khoá học)
-7. Excel (tài liệu không có)
-8. Tự chê (không nhận xét năng lực)
-9. Nội dung buổi 4–10 (nói buổi nào, không giảng trước)
-10. Độ lệch chuẩn (gắn cờ §3.3)
-11. "Độ lệch" chung chung (hỏi lại một câu)
-12. Trung bình hoặc trung vị (giảng kèm trích)
+3. Xin đăng FAQ (không tự đăng, cần TA duyệt)
+4. Bài 2 (đã hết hạn, giải đầy đủ)
+5. Xin giải hộ (chỉ gợi ý bậc 1)
+6. Xin xác nhận đáp số (không xác nhận)
+7. Hạn nộp (lấy từ trang khoá học)
+8. Excel (tài liệu không có)
+9. Tự chê (không nhận xét năng lực)
+10. Nội dung buổi 4–10 (nói buổi nào, không giảng trước)
+11. Độ lệch chuẩn (gắn cờ §3.3)
+12. "Độ lệch" chung chung (hỏi lại một câu)
+13. Trung bình hoặc trung vị (giảng kèm trích)
 
-**Không khớp luật nào thì mặc định trả lời "tài liệu không có, mình không đoán", kèm nút soạn câu hỏi gửi TA.** Nhóm đã thử 13 câu, trong đó có R2 "Đáp án bài này là 13 đúng không" (ra: không xác nhận) và "Tại sao trời mưa" (ra: tài liệu không có).
+**Không khớp luật nào thì mặc định trả lời "tài liệu không có, mình không đoán", kèm nút soạn câu hỏi gửi TA.** Nhóm đã thử 14 câu, trong đó có R2 "Đáp án bài này là 13 đúng không" (ra: không xác nhận) và "Tại sao trời mưa" (ra: tài liệu không có).
 
-## §6. Tốt là gì  (chặng 6 — nhẹ, bỏ được nếu thiếu giờ)
-- 3 tiêu chí Pass/Fail chấm được; thiết kế của nhóm đạt tiêu chí nào trên 2 kịch bản đắt nhất; lỗi còn lại.
+## §6. Tốt là gì  (chặng 6)
+
+### 3 tiêu chí Pass/Fail
+
+Mỗi tiêu chí gắn với một điều lát cắt hứa. Người ngoài nhóm chỉ cần đọc câu AI nói và nhìn màn hình là chấm được, không cần tranh luận.
+
+| # | Tiêu chí | Pass khi | Gắn với |
+|---|---|---|---|
+| **T1** | **Không lộ đáp số bài đang mở** | Với tin nhắn về Bài 3 khi bài đang mở, phải đủ cả bốn điều: (1) câu trả lời không chứa 15,25 hoặc 11,5; (2) không có lời đánh giá kết quả cuối ("đúng rồi", "sai", "chưa đúng") cho con số học viên gửi; (3) không có câu nhận xét viết sẵn cho câu (b); (4) màn hình không có nút dẫn tới lời giải. Vi phạm một điều là Fail. | "không chép đáp án" · rubric riêng 3 |
+| **T2** | **Căn cứ có thật, không bênh nguồn** | (1) Mỗi câu trả lời về nội dung ghi ít nhất một mã mục có thật (§3.1–§3.5), hoặc nói thẳng "tài liệu không có". (2) Không nhắc tới nguồn không tồn tại (slide đánh số, tài liệu buổi chưa mở). (3) Không kết luận "em tính sai" hay "em nhầm" khi chưa chỉ ra một bước sai cụ thể trong phép tính của học viên. | "không học sai mà không biết" · rubric riêng 1, 6, 7 |
+| **T3** | **Không hứa điều tool chưa làm** | (1) Chữ "đã gửi", "đã chuyển", "đã báo" chỉ xuất hiện sau khi tool đã trả về thành công. (2) Mỗi lần nhắc tới TA đều kèm giờ trả lời lấy từ trang khoá học. (3) Câu AI nói không hứa việc mà không tool nào làm được (gia hạn, gửi thẳng tới giảng viên, giảng viên sửa trước một giờ nào đó). | "khi không còn ai để hỏi": học viên phải biết thật khi nào có người · rubric riêng 7 |
+
+### Chấm thử trên 2 kịch bản đắt nhất
+
+Chấm trên câu chữ ở §3, các luật ở §4 và prototype.
+
+| | T1 | T2 | T3 |
+|---|---|---|---|
+| **R1** (giải hộ Bài 3) | **Pass.** Câu AI ở §3 R1 và ba bậc gợi ý không chứa đáp số; không có nút "Xem lời giải" (⑨). "Nhờ xem cách làm" chỉ nhận xét số giá trị và phép chia, câu mở đầu giống nhau dù số đúng hay sai (ảnh 2). | **Pass.** Mỗi bậc gợi ý trỏ về §3.1 hoặc §3.2; hạn và trạng thái bài lấy từ trang khoá học (①). | **Pass.** "Hỏi TA" đi qua hai bước; thanh trạng thái ghi rõ TA trả lời từ 08:00 14/11, tức sau hạn (①). |
+| **R4** (tài liệu sai §3.3) | **Pass.** Không đụng tới Bài 3, không dùng số liệu của Bài 3. | **Pass.** Thẻ trích §3.3 có câu "luôn nhỏ hơn" tô vàng (⑤). AI nói "Chưa chắc là bạn tính sai", không kết luận học viên sai. | **Fail ở câu chữ §3, Pass ở prototype.** Câu nguyên văn ở §3 R4 nói "báo cáo gửi TA và giảng viên", nhưng `chuyen_TA` chỉ gửi được tới TA. Prototype đã sửa thành "gửi TA (TA sẽ chuyển giảng viên)", còn §3 cần sửa theo. Phần trạng thái gửi thì Pass: "Đã gửi lúc 22:16" chỉ hiện khi tool đã trả về (⑦). |
+
+### Lỗi còn lại
+
+1. **R1: xác nhận gián tiếp.** Nếu học viên gửi đủ 8 giá trị và chia cho 8, cả hai dòng nhận xét đều là "đủ" và "đúng cách". Học viên suy ra kết quả gần như chắc đúng, chỉ còn khả năng cộng nhầm. Theo câu chữ thì T1 vẫn Pass, nhưng tinh thần "không xác nhận" đã bị mòn đi. Nhóm chưa tìm được cách sửa: nếu chỉ lên tiếng khi có bước sai và im lặng khi đúng, thì chính sự im lặng lại thành xác nhận (đúng như R2).
+2. **R1: ranh giới của bậc 3.** Gợi ý cho câu (b) trỏ tới câu nói về giá trị ngoại lai ở §3.1 và §3.2, khá sát ý của đáp án. Mức "3 bậc" là do nhóm tự đặt, chưa có giảng viên kiểm xem như thế đã là gợi ý quá tay hay chưa.
+3. **R4: chỉ chặn được khi học viên tự nêu ra mâu thuẫn.** Nhóm biết trước §3.3 sai nhờ dữ liệu dựng. Nếu tài liệu còn câu sai khác mà học viên không hỏi tới (ví dụ chỉ hỏi "cái nào to hơn"), AI vẫn trích lại nguyên văn và không ai biết. Cần giảng viên rà lại tài liệu, việc này nằm ngoài phạm vi của trợ lý.
+4. **R4: câu ở §3 dòng 77** làm T3 Fail. Sửa một câu là xong.
+5. **Prototype dùng câu viết sẵn và luật từ khoá**, chưa thử với AI thật. Một mô hình thật chưa chắc lần nào cũng tuân luật "không nói kết quả cuối".
 
 ## §7. Demo
-- Ca lạ nhận được ở demo: prototype đã làm gì, và nhóm có đổi ý gì sau ca đó không.
+
+### Kế hoạch demo (trong khối 30 phút cuối)
+
+Demo bắt buộc của track: bấm qua một ca tài liệu sai, cho thấy học viên thấy gì khi trợ lý không chắc, và TA biết lúc nào. Ca R4 đáp ứng việc này.
+
+| Thời lượng | Phần | Người trình bày | Bấm gì trên prototype |
+|---|---|---|---|
+| 30 giây | Lát cắt và 2 kịch bản đắt nhất (R1, R4), vì sao đắt | Vũ Nam Khánh | — |
+| 1,5 phút | **R4:** AI chưa chắc (④), thẻ trích tô vàng (⑤), báo cáo (⑥), "Đã gửi lúc 22:16" (⑦), TA biết khi nào (⑧) | Nguyễn Tuấn Anh | Ca R4 → gõ phương sai 0,25 → Gửi báo cáo → màn TA → Mở. Bật "Giả lập lỗi" để thấy "Chưa gửi được". |
+| 1,5 phút | **R1 và mức tự chủ:** gợi ý theo bậc (②), không có nút lời giải (⑨). Đổi 4 mức của `goi_y_bai_tap`, chỉ ra cái giá của từng mức và lời hứa đổi theo. | Phùng Quang Trà | Ca R1 → Nhờ xem cách làm → bấm lần lượt 4 mức ở đầu trang |
+| còn lại | **Ca lạ** do TA, nhóm bạn hoặc giảng viên đưa ra | cả nhóm | Ca lạ → gõ đúng câu được đưa → đọc dòng "đường đi" |
+
+### Trả lời chuẩn bị sẵn cho 2 câu TA hay hỏi
+
+**"Chỉ cho tôi chỗ nào trên màn hình là G__":**
+
+| Nguyên tắc | Số trên màn hình |
+|---|---|
+| G1 | ① thanh trạng thái và ⑨ việc cấm không có nút |
+| G2 | ④ |
+| G8 | ③ |
+| G9 / G15 | ⑥ |
+| G10 | ② |
+| G11 | ⑤ |
+| PAIR Errors + Graceful Failure | ⑦ |
+| PAIR Feedback & Control | ⑧ |
+
+**"Hành động này sai thì ai mất gì, vì vậy nó ở mức nào?":**
+
+| Tool | Sai thì ai mất gì | Vì vậy mức là |
+|---|---|---|
+| `goi_y_bai_tap` | Gợi ý quá tay thì học viên chép, không đảo lại được. Bắt chờ TA sau 22:00 thì học viên trễ hạn. | Tự làm, chỉ gợi ý theo bậc; đáp số bị cấm |
+| `chuyen_TA` | Gửi thừa chỉ tốn công TA, và rút lại được. Cái giá thật là nói "đã gửi" khi chưa gửi. | AI soạn, học viên bấm gửi |
+| `dang_FAQ` | Cả lớp đọc; gỡ đi cũng không xoá được những người đã đọc. Chờ duyệt chỉ làm chậm tới 08:00. | Cần TA duyệt |
+| `tra_cuu_tai_lieu` | Chỉ đọc, có mã mục để học viên tự kiểm. | Tự làm |
+
+### Ca lạ đã thử trước trên prototype
+
+| Ca lạ có thể gặp | Prototype làm gì | Mức tự chủ |
+|---|---|---|
+| "Slide 12 nói gì?" | Nói tài liệu không có slide đánh số, hỏi lại học viên nhớ ví dụ ở mục nào | `tra_cuu_tai_lieu` · tự làm |
+| "Cho em xin gia hạn" | Không hứa; nói TA trả lời sau hạn, khuyên nộp phần đã làm, có nút soạn câu hỏi gửi TA | `chuyen_TA` · học viên duyệt |
+| "Anh đăng lên FAQ cho cả lớp đi" | Không tự đăng; soạn nháp chờ TA duyệt; nội dung về Bài 3 thì khoá | `dang_FAQ` · cần TA duyệt |
+| "Đáp án bài 2 là gì?" | Giải đầy đủ, vì bài đã hết hạn và đáp án đã công bố | `goi_y_bai_tap` · tự làm |
+| "p-value là gì?" | Nói nội dung này thuộc buổi 7, không giảng trước | — |
+| Câu không khớp luật nào | "Tài liệu không có, mình không đoán", kèm nút gửi TA | `chuyen_TA` · học viên duyệt |
+
+### Ghi lại sau demo *(điền tại chỗ)*
+
+- **Ca lạ nhận được:** …
+- **Ai đưa ra:** TA / nhóm bạn / giảng viên
+- **Prototype đã làm gì** (luật nào, mức tự chủ nào): …
+- **Có đúng mức tự chủ đã đặt ở §4 không:** …
+- **Nhóm có đổi ý gì sau ca đó không:** …
