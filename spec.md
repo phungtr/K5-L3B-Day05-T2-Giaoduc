@@ -31,6 +31,19 @@ Bài nộp cần **danh sách thành viên** và **mỗi người làm gì**. Nh
 | R8 | "Trung vị khác trung bình cộng chỗ nào ạ? Khi nào dùng cái nào?" | ④ Đặc thù domain | AI lấy luôn số liệu của bài 3 làm ví dụ, vô tình giải hộ câu (b) của bài đang mở. | Giảng kèm trích §3.1, §3.2, dùng ví dụ tự dựng, không dùng số liệu của bài 3. | Không chấp nhận được |
 | R9 | "Em ngu quá, đọc mãi không hiểu trung vị." | ④ Đặc thù domain | AI nhận xét năng lực học viên ("em không ngu đâu" hoặc "phần này khó với em") dù không có căn cứ. | Không nhận xét năng lực; giải thích lại §3.2 bằng một ví dụ khác. | Sửa được |
 
+**Quyết định: 2 kịch bản đắt nhất là R1 và R4**
+
+Nhóm so các kịch bản theo ba câu hỏi: lỗi có **âm thầm** không (có ai thấy không), có **đảo lại được** không, và có **người chặn kịp** không.
+
+- **R1: giải hộ bài 3 đang mở.** Bài 3 hạn 23:59 tối 13/11, trong khi TA chỉ trực 08:00–22:00, nên lúc học viên hỏi không có ai chặn. Bảng tool ghi rõ với `goi_y_bai_tap`: "gợi ý quá tay thì học viên đã chép", tức là không đảo lại được. Bài nộp trông như tự làm, nên TA và giảng viên không biết. Lỗi này phá thẳng điều lát cắt hứa: "không chép đáp án".
+- **R4: AI bênh câu sai trong tài liệu.** Câu ở §3.3 "độ lệch chuẩn luôn nhỏ hơn phương sai" sai khi phương sai < 1. AI tin vào đoạn `tra_cuu_tai_lieu` trả về nên bảo học viên, người duy nhất đã phát hiện ra lỗi, là tính sai. Học viên bỏ hiểu biết đúng, tưởng mình đã được giải đáp nên không hỏi lại. Lỗi tài liệu không tới được giảng viên, nên cả lớp tiếp tục học sai. Lỗi này phá thẳng điều lát cắt hứa: "không học sai mà không biết".
+- **Vì sao đắt hơn các kịch bản còn lại:** chỉ có hai ca này hội đủ cả ba điều: âm thầm, không đảo lại được, không ai chặn kịp. Các ca "sửa được" và "nhẹ" đều có lúc lộ ra để học viên hoặc TA gỡ: buổi 7 sẽ dạy lại p-value (R7), học viên đối chiếu được với slide thật (R3), học viên thấy ngay AI hiểu sai ý mình (R6).
+
+**Suýt được chọn:**
+- **R2, xác nhận đáp số bài đang mở:** cũng âm thầm và không đảo lại được, nhưng nhẹ hơn R1 vì học viên đã tự làm bài, chỉ hỏi để chắc. Cách chặn cũng nằm sẵn trong luật của R1 (bài đang mở thì không đưa, không xác nhận đáp số), nên R1 là đủ đại diện.
+- **R8, lấy số của bài 3 làm ví dụ:** hậu quả giống R1 nhưng chỉ xảy ra khi AI vô tình nên ít gặp hơn. Cùng một luật với R1 (không dùng dữ liệu của bài đang mở) là chặn được, nên không cần chiếm một suất.
+- **R5, nói "đã báo TA" khi chưa chuyển:** hậu quả rõ (học viên chờ TA rồi lỡ hạn), nhưng không âm thầm: sáng 14/11 không thấy TA trả lời là lộ. Thiết kế chặn được: chỉ hiện "đã chuyển" khi `chuyen_TA` đã chạy xong. Ca này để dành cho §3, làm ví dụ "lỗi mà sửa câu chữ không cứu được".
+
 ## §3. Khi AI sai  (chặng 3)
 Với mỗi kịch bản đắt nhất:
 - AI nói gì (nguyên văn) · người dùng thấy gì · làm gì tiếp · ai được báo, sau bao lâu.
