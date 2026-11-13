@@ -45,12 +45,32 @@ Nhóm so các kịch bản theo ba câu hỏi: lỗi có **âm thầm** không (
 - **R5, nói "đã báo TA" khi chưa chuyển:** hậu quả rõ (học viên chờ TA rồi lỡ hạn), nhưng không âm thầm: sáng 14/11 không thấy TA trả lời là lộ. Thiết kế chặn được: chỉ hiện "đã chuyển" khi `chuyen_TA` đã chạy xong. Ca này để dành cho §3, làm ví dụ "lỗi mà sửa câu chữ không cứu được".
 
 ## §3. Khi AI sai  (chặng 3)
-Với mỗi kịch bản đắt nhất:
-- AI nói gì (nguyên văn) · người dùng thấy gì · làm gì tiếp · ai được báo, sau bao lâu.
-- Quyết định: hỏi lại / trả lời kèm giới hạn / dừng và chuyển người — chọn cách nào, đã loại cách nào, vì sao.
-- Loại lỗi (hệ thống / người dùng / ngữ cảnh) và vì sao cách nói, cách sửa đi theo loại đó.
-- 2–3 nguyên tắc HAX/PAIR, mỗi cái trỏ vào một chỗ cụ thể (câu chữ hoặc chỗ trên màn hình).
-- Lỗi nào sửa câu chữ không cứu được (nếu có), và thiết kế cứu nó thế nào.
+
+### Kịch bản đắt giá nhất 1 - R1: AI giải hộ bài tập đang mở
+- **Tin người dùng:** “Giải hộ mình bài 3 với.”
+- **AI nói gì (nguyên văn):**
+
+  > “Mình có thể giúp bạn bắt đầu, nhưng vì Bài tập 3 đang mở nên mình không đưa đáp án hay lời giải hoàn chỉnh. Bước đầu: hãy tính trung bình cộng của 8 mức lương bằng cách cộng tất cả các giá trị rồi chia cho 8. Bạn thử tính bước này trước; nếu muốn, mình sẽ kiểm tra cách bạn làm và gợi ý bước tiếp theo.”
+
+- **Dữ liệu xác nhận:** Trang khóa học xác nhận Bài tập 3 đang mở và hạn nộp là **13/11/2026 23:59**. AI lấy trạng thái và deadline từ trang khóa học, không suy đoán.
+- **Người dùng thấy gì:**
+  - Nhãn **“Bài tập đang mở”** và deadline **13/11/2026 23:59**.
+  - Hộp **“Gợi ý bước đầu”** chỉ chứa bước đầu tiên: cộng 8 mức lương rồi chia cho 8 để tính trung bình cộng.
+  - Không hiển thị đáp số và không có nút **“Xem lời giải”**.
+  - Có ô để học viên nhập bước mình đã làm và nút **“Xin gợi ý tiếp”** thay vì **“Giải bài”**.
+  - Boundary được thể hiện ngay trong câu trả lời và nhãn trạng thái: **G1 — Làm rõ hệ thống làm được gì**. Hộp gợi ý chỉ có một bước nhỏ: **G10 — Thu hẹp phạm vi khi nghi ngờ**. Học viên có thể bỏ qua gợi ý và tự làm; giao diện không có đường mở đáp án: **G8 — Gạt bỏ dễ dàng**.
+- **Người dùng làm gì tiếp:** Tự tính trung bình cộng, gửi phép tính của mình để AI kiểm tra cách làm. Nếu bí tiếp thì xin một gợi ý tiếp theo; AI vẫn không đưa đáp án hoàn chỉnh.
+- **Ai được báo, sau bao lâu:** Không cần báo TA ngay khi AI vẫn có thể đưa gợi ý phù hợp. Nếu học viên không thể tiếp tục hoặc phát hiện vấn đề trong tài liệu, có thể chọn chuyển TA. Chỉ báo đã chuyển khi `chuyen_TA` thực sự chạy; không hứa TA đã nhận câu hỏi trước đó.
+- **Quyết định:** **Trả lời kèm giới hạn.** AI không thiếu thông tin và không cần người có thẩm quyền để chọn hành động đầu tiên; giới hạn nằm ở quyền xử lý bài tập đang mở. Một gợi ý nhỏ vẫn giúp học viên học mà không giải bài hộ.
+- **Chọn:** Chỉ đưa gợi ý bước đầu, không đưa hoặc xác nhận đáp án, không tạo lời giải hoàn chỉnh. Nếu học viên gửi cách làm, AI được kiểm tra quá trình và đưa gợi ý tiếp theo trong giới hạn này.
+- **Đã cân nhắc nhưng loại:**
+  - **Hỏi lại:** Yêu cầu đã rõ và trạng thái Bài tập 3 đang mở đã có sẵn; hỏi “Bạn muốn mình giúp thế nào?” không thêm thông tin hữu ích.
+  - **Dừng và chuyển người:** Quá mạnh vì AI vẫn có thể giúp bằng gợi ý bước đầu; bắt học viên chờ TA lúc tối muộn đi ngược bối cảnh sản phẩm.
+- **Loại lỗi:** **Lỗi hệ thống / lỗi quyền hạn.** Hiểu đúng câu hỏi vẫn có thể dẫn đến lỗi nếu `goi_y_bai_tap` tạo lời giải quá mức. Cảnh báo của tool nêu rõ gợi ý quá tay có thể khiến học viên chép đáp án. Chỉ sửa câu chữ từ chối là chưa đủ nếu tool vẫn có khả năng tạo lời giải hoàn chỉnh.
+- **Lỗi mà sửa câu chữ không cứu được:** Nếu AI vẫn có khả năng tạo lời giải hoàn chỉnh, câu “Mình không thể giải hộ” không ngăn được việc đáp án bị lộ trong phần giải thích tiếp theo.
+- **Thiết kế cứu / giới hạn hành động của tool:** Khi trạng thái bài tập là **“đang mở”**, `goi_y_bai_tap` chỉ được tạo **gợi ý bước đầu**; không được tạo hoặc xác nhận đáp án, cũng không tạo lời giải hoàn chỉnh. Học viên không có nút hoặc luồng đi tới đáp án/lời giải hoàn chỉnh. Sau khi học viên tự làm và gửi phép tính, AI có thể kiểm tra cách làm và — nếu học viên xin — đưa một gợi ý tiếp theo, nhưng vẫn không được tiết lộ lời giải hoàn chỉnh. Đây là giới hạn ở mức hành động sản phẩm, không phải lời hứa bằng câu chữ.
+
+### Kịch bản đắt giá nhất 2 - R4: Tài liệu khóa học có câu sai
 
 ## §4. Mức tự chủ  (chặng 4)
 Với mỗi tool:
