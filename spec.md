@@ -124,7 +124,7 @@ Mức nào cũng có giá, và mỗi phía trỏ về một kịch bản ở §2
 **Mỗi người từng chọn gì:** *(nhóm điền: mỗi người tự xếp mức trong 5 phút trước khi bàn)*
 - Phùng Quang Trà: **Tự làm**, vì sau 22:00 không còn TA (giờ trực 08:00–22:00) mà Bài 3 hạn 23:59; nếu cấm hoặc bắt chờ duyệt thì học viên kẹt tới sau hạn. Khi bàn, nhóm thấy tự làm không giới hạn sẽ dẫn tới R1, nên giữ mức "tự làm" nhưng giới hạn ở gợi ý theo bậc.
 - Vũ Nam Khánh: …
-- Nguyễn Tuấn Anh: …
+- Nguyễn Tuấn Anh: **Cần người duyệt**, vì R1 không đảo lại được nên muốn có bước chặn trước khi gợi ý tới học viên. Nhưng R1 xảy ra sau 22:00, lúc TA đã hết trực và Bài 3 hạn 23:59, nên chờ duyệt là trễ hạn. Nhóm chuyển bước chặn vào chính tool: bài đang mở chỉ trả bước đầu.
 
 **Cách nhóm chốt:** để **tự làm, nhưng giới hạn hành động theo trạng thái bài** lấy từ `xem_trang_khoa_hoc`. Cụ thể:
 1. Với bài đang mở, tool chỉ có chế độ "gợi ý theo bậc". Tối đa 3 bậc, mỗi bậc trỏ một mục; hết bậc thì dừng: "phần còn lại là của em".
